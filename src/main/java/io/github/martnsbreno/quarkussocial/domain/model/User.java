@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.ws.rs.BadRequestException;
 import java.util.Objects;
 
 @Entity
@@ -18,5 +19,4 @@ public class User {
     private String name;
 
     private Integer age;
-
 }

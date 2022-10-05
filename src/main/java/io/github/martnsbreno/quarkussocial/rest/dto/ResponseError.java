@@ -13,6 +13,8 @@ public class ResponseError {
 
     public static final int UNPROCESSABLE_ENTITY_STATUS = 422;
 
+    public static final int BAD_REQUEST = 400;
+
     private String message;
     private Collection<FieldError> errors;
 
