@@ -91,10 +91,9 @@ public class PostResource {
     @Path("{id}")
     @Transactional
     public Response deletePosts(@PathParam("userid") Long userid, @PathParam("id") Long postid) {
-        User user = userRepository.findById(userid);
-        Post post1 = postRepository.findById(postid);
+        if (userid == null || postid == null) return Response.status(Response.Status.NOT_FOUND).build();
 
-        if (user == null || post1 == null) return Response.status(Response.Status.NOT_FOUND).build();
+        Post post1 = postRepository.findById(postid);
 
         if (Objects.equals(userid, post1.getUser().getId())) {
             postRepository.deleteById(post1.getId());
